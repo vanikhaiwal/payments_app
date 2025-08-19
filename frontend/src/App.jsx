@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
+import Logout from './Components/Logout'
 import Dashboard from './pages/Dashboard'
 import TransactionHistory from './pages/TransactionHistory'
 import  RequestMoney  from './pages/RequestMoney'
@@ -21,6 +22,8 @@ function App() {
           <Route path='/transaction-history' element={<TransactionHistory />} />
           <Route path='/RequestMoney' element={<RequestMoney />} />
           <Route path='/requests' element={<MoneyRequests />} />
+          <Route path='/logout' element={<Logout />} />
+          
         </Routes>
       </BrowserRouter>
       <ToastContainer /> 

@@ -30,16 +30,15 @@ export default function Login() {
     }
 
     return (
-        <div className="h-screen grid place-items-center bg-gray-500">
-            <div className="bg-gray-300 h-3/5 w-80 flex flex-col justify-center items-center shadow-2xl rounded">
+        <div className="h-screen grid place-items-center bg-gray-300">
+            <div className="bg-white h-3/5 w-85 flex flex-col justify-center items-center shadow-2xl rounded">
                 <Heading label={"SIGN IN"} />
                 <SubHeading label={"Enter your information to Signin your"} sublabel={"account"} />
                 <div className="ml-3">
                     <Input type={"text"} placeholder={"Enter Username / Email"} label={"Username"} onChange={(e) => setUsername(e.target.value)} />
                     <Input type={"password"} placeholder={"Enter Password"} label={"Password"} onChange={(e) => setPassword(e.target.value)} />
-                    <Button label={"SIGN IN"} onClick={() =>
-                        Authorize(username, password)
-                    } />
+                    <Button onClick={() =>
+                        Authorize(username, password)} label={"SIGN IN"}/>
                 </div>
                 <BottomText label={"Don't have an account?"} path={"/signup"} text={"Sign Up"} />
             </div>

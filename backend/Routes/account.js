@@ -104,7 +104,21 @@ Router.post('/Request-status',async(req,res)=>{
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+Router.get("/getbalance", AuthMiddleware, async (req, res) => {
+  try {
+    const userData = await user.findById(req.userId).select("firstName lastName");
+    const accountData = await account.findOne({ userId: req.userId });
+    if (!userData || !accountData) return res.status(404).json({ error: "User or account not found" });
 
+    res.json({
+      firstName: userData.firstName.toUpperCase(),
+      lastName: userData.lastName.toUpperCase(),
+      balance: accountData.balance,
+    });
+  } catch (err) {
+    res.status(500).json({ error: "Server error" });
+  }
+});
 
 
 module.exports = Router;

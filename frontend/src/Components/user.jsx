@@ -25,13 +25,13 @@ function Users() {
             <Input
                 type="text"
                 placeholder="Search user"
-                className="mb-4 h-9 pl-3 ml-9 border w-[80%] border-black"
+                className="m-4 h-9 pl-3 ml-9 border w-[80%] border-black"
                 onChange={(e) => setFilter(e.target.value)}
             />
             <ul className="text-black">
                 {User.map((u) => { 
                     return (
-                        <div key={u._id} className="flex justify-between border">
+                        <div key={u._id} className="flex justify-between rounded-xl shadow-lg hover:bg-gray-100">
                             <div className="flex m-8 ">
                                 <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mr-3">
                                     <span className="text-2xl text-black">{u.firstName[0].toUpperCase()}</span>
@@ -40,7 +40,7 @@ function Users() {
                             </div>
                             <div className="flex items-center space-between">
                             <button onClick={() => {
-                                navigate(`/requestMoney?id=${u._id}&name=${u.firstName} ${u.lastName}`)
+                                navigate(`/requestMoney?id=${u._id}&name=${u.firstName?.toUpperCase()} ${u.lastName?.toUpperCase()}`)
                             }}
                             className="border w-32 h-10 rounded-2xl bg-black text-white m-8">
                                 Request Money

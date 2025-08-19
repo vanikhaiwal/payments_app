@@ -39,14 +39,14 @@ import { useSearchParams, useNavigate } from 'react-router-dom'
                         onChange={(e) => {
                             setPassword(e.target.value)
                         }} />
-                    <Button label={"Sign Up"}
+                    <Button className="bg-blue-700 text-white px-4 py-2 rounded-md hover:bg-blue-800 w-full mt-3"
                         onClick={async () => {
                             try {
                                 const response = await axios.post('http://localhost:3000/api/v1/user/signup',
                                     {
                                         firstName,
                                         lastName,
-                                        username: email, // Changed from 'email' to 'username'
+                                        username: email, 
                                         password
                                     })
                                 localStorage.setItem('token', response.data.token)
@@ -57,7 +57,7 @@ import { useSearchParams, useNavigate } from 'react-router-dom'
                             } catch (err) {
                                 console.log("signup error", err)
                             }
-                        }} />
+                        }} label={"SIGN UP"}/>
                         </div>
                     <BottomText label={"Already have an account?"} path={"/login"} text={"Login"} />
                 </div>
